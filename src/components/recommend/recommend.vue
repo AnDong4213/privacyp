@@ -28,9 +28,11 @@
 	        </ul>
 	      </div>
     	</div>
+    	
     	<div class="loading-container" v-show="!discList.length">
 	    	<loading></loading>
 	    </div>
+	    
     </scroll>
     <router-view></router-view>
   </div>
