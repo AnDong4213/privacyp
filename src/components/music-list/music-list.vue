@@ -103,6 +103,7 @@
     		this.$router.back()
     	},
 			scroll(pos) {
+				console.log(pos)
 				this.scrollY = pos.y
 			},
 			random() {
@@ -113,6 +114,10 @@
     },
     watch: {
 			scrollY(newY) {
+				// console.log(this.$refs.bgImage.clientHeight)
+				// console.log(this.minTransalteY)
+				// console.log(this.$refs.bgImage.clientHeight)
+				
 				let translateY = Math.max(this.minTransalteY, newY)
 				let zIndex = 0
 				let scale = 1
@@ -220,7 +225,7 @@
     .bg-layer
       position: relative
       height: 100%
-      background: $color-background
+      background: pink
     .list
       position: absolute
       top: 0
