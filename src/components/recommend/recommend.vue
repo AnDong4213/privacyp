@@ -1,5 +1,6 @@
 <template>
   <div class="recommend" ref="recommend">
+  	
     <scroll ref="scroll" class="recommend-content" :data="discList">
     	<div>
     		<div v-if="recommends.length" class="slider-wrapper">
@@ -32,6 +33,7 @@
 	    	<loading></loading>
 	    </div>
     </scroll>
+    
     <router-view></router-view>
   </div>
 </template>

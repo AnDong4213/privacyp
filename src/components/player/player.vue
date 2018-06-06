@@ -107,7 +107,6 @@
   import Lyric from 'lyric-parser'
   import Playlist from 'components/playlist/playlist'
   import {playerMixin} from 'common/js/mixin'
-  /* import animations from 'create-keyframe-animation' */
 
   const transform = prefixStyle('transform')
   const transitionDuration = prefixStyle('transitionDuration')

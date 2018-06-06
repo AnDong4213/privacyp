@@ -33,6 +33,7 @@ export default new Router({
       path: '/',
       redirect: '/recommend'
     },
+    
     {
       path: '/recommend',
       component: Recommend,
@@ -43,6 +44,7 @@ export default new Router({
       	}
       ]
     },
+    
     {
       path: '/singer',
       component: Singer,
@@ -53,6 +55,7 @@ export default new Router({
       	}
       ]
     },
+    
     {
       path: '/rank',
       component: Rank,
@@ -63,6 +66,7 @@ export default new Router({
       	}
       ]
     },
+    
     {
       path: '/search',
       component: Search,
@@ -73,9 +77,11 @@ export default new Router({
       	}
       ]
     },
+    
     {
     	path: '/user',
     	component: UserCenter
     }
+    
   ]
 })
