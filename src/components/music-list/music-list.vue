@@ -1,5 +1,6 @@
 <template>
   <div class="music-list">
+		
     <div class="back" @click="back">
       <i class="icon-back"></i>
     </div>
@@ -40,7 +41,9 @@
 
   const RESERVED_HEIGHT = 40
   const transform = prefixStyle('transform')
+	// console.log(transform)
   const backdrop = prefixStyle('backdrop-filter')
+	// console.log(backdrop)
 
   export default {
   	mixins: [playlistMixin],

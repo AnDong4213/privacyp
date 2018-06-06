@@ -5,7 +5,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import MusicList from 'components/music-list/music-list'
+  import musicList from 'components/music-list/music-list'
   import {mapGetters} from 'vuex'
   import {getSongList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
@@ -38,21 +38,24 @@
       	getSongList(this.disc.dissid).then((res) => {
       		if (res.code === ERR_OK) {
       			this.songs = this._normalizeSongs(res.cdlist[0].songlist)
+						// console.log(this.songs)
       		}
       	})
       },
       _normalizeSongs(list) {
       	let ret = []
       	list.forEach((musicData) => {
+					// console.log(musicData)
       		if (isValidMusic(musicData)) {
       			ret.push(createSong(musicData))
+						// console.log(createSong(musicData))
       		}
       	})
       	return ret
       }
     },
     components: {
-      MusicList
+      musicList
     }
   }
 </script>

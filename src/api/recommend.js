@@ -16,7 +16,7 @@ export function getRecommend() {
   return jsonp(url, data, options)
 }
 
-export function wangyi() {
+/* export function wangyi() {
 	const url = 'http://music.163.com/weapi/personalized/newsong'
 	const data = {
     params: 'y5Tp41Id2jdi2hChArZaLwWNeZ0spepEXKoPFWLkZQY=',
@@ -24,7 +24,7 @@ export function wangyi() {
   }
 	return jsonp(url, data, options)
 	// console.log(Date.now())
-}
+} */
 
 export function getDiscList() {
   // 线上环境地址，同学们根据自己的需要配置修改

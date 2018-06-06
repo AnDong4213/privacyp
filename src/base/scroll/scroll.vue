@@ -88,6 +88,7 @@
         this.scroll && this.scroll.enable()
       },
       refresh() {
+				// console.log('refresh')
         this.scroll && this.scroll.refresh()
       },
       scrollTo() {

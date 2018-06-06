@@ -19,7 +19,7 @@
 	        <ul>
 						<li v-for="item in discList" @click="selectItem(item)" class="item">
 							<div class="icon">
-								<img v-lazy="item.imgurl" width="60" height="60" />
+								<img @load="loadImage2" v-lazy="item.imgurl" width="60" height="60" />
 							</div>
 							<div class="text">
 								<h2 class="name" v-html="item.creator.name"></h2>
@@ -44,7 +44,7 @@
   import Loading from 'base/loading/loading'
   import Slider from 'base/slider/slider'
   import Scroll from 'base/scroll/scroll'
-  import {getRecommend, getDiscList, wangyi} from 'api/recommend'
+  import {getRecommend, getDiscList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
   import {playlistMixin} from 'common/js/mixin'
   import {mapMutations} from 'vuex'
@@ -60,9 +60,6 @@
     created() {
       this._getRecommend()
       this._getDiscList()
-      wangyi().then((res) => {
-	      console.log(res)
-	    })
     },
     methods: {
     	handlePlaylist(playlist) {
@@ -82,6 +79,9 @@
           this.$refs.scroll.refresh()
         }
       },
+			loadImage2() {
+				console.log('loadImage2')
+			},
       _getRecommend() {
         getRecommend().then((res) => {
           if (res.code === ERR_OK) {
@@ -93,6 +93,7 @@
         getDiscList().then((res) => {
           if (res.code === ERR_OK) {
             this.discList = res.data.list
+						// console.log(res.data.list)
           }
         })
       },

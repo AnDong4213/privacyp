@@ -46,15 +46,15 @@ export default class Song {
 		}
 		 getVKey(this.mid, this.filename).then((res) => {
 		 	if (res.code === ERR_OK) {
+		 		// console.log(res)
 		 		const vkey = res.data.items[0].vkey
 		 		this.url = `http://dl.stream.qqmusic.qq.com/${this.filename}?vkey=${vkey}&guid=${getUid()}&uin=0&fromtag=66`
 		 		urlMap[this.id] = this.url
 		 	}
 		 })
 	}
-	
 }
-
+// http://dl.stream.qqmusic.qq.com/C4000037gTiG11n7oE.m4a?vkey=BC171A38E02CCF8F357E3A818A7FE2E791635B64ABFCF3F9A8C30262C66832F9E6B5CB3B6153EA0C3E040D3F0355B8303A1B7E5E4CFCFC05&guid=7807056253&uin=0&fromtag=66
 export function createSong(musicData) {
   return new Song({
     id: musicData.songid,
