@@ -1,3 +1,13 @@
+/* album: "韩国情人1",
+duration: 294,
+filename: "C400000jvlcH2amibh.m4a",
+id: 2630463,
+image: "https://y.gtimg.cn/music/photo_new/T002R300x300M0000035lmqJ3GbU0Y.jpg?max_age=2592000",
+mid: "000jvlcH2amibh",
+name: "蓝色生死恋《 蓝色生死恋 》",
+singer: "Pure Music",
+url: "http://dl.stream.qqmusic.qq.com/C400000jvlcH2amibh.m4a?vkey=05CFB92632B03B16B */
+
 import * as types from './mutation-types'
 import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
@@ -10,20 +20,22 @@ function findIndex(list, song) {
 }
 
 export const selectPlay = function ({commit, state}, {list, index}) {
-	commit(types.SET_SEQUENCE_LIST, list)
+	// console.log(list)
+	commit(types.SET_SEQUENCE_LIST, list)  // state.sequenceList = list
 	if (state.mode === playMode.random) {
 		let randomList = shuffle(list)
-		commit(types.SET_PLAYLIST, randomList)
+		commit(types.SET_PLAYLIST, randomList)  // state.playlist = list
 		index = findIndex(randomList, list[index])
 	} else {  
 		commit(types.SET_PLAYLIST, list)
 	}
-	commit(types.SET_CURRENT_INDEX, index)
-    commit(types.SET_FULL_SCREEN, true)
-    commit(types.SET_PLAYING_STATE, true)
+	commit(types.SET_CURRENT_INDEX, index)  // state.currentIndex = index
+    commit(types.SET_FULL_SCREEN, true)  // state.fullScreen = flag
+    commit(types.SET_PLAYING_STATE, true)  // state.playing = flag
 }
 
 export const randomPlay = function ({commit}, {list}) {
+	// console.log(list)
 	commit(types.SET_PLAY_MODE, playMode.random)
 	commit(types.SET_SEQUENCE_LIST, list)
 	let randomList = shuffle(list)
@@ -74,18 +86,6 @@ export const insertSong = function ({commit, state}, song) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
-export const saveSearchHistory = function ({commit}, query) {
-	commit(types.SET_SEARCH_HISTORY, saveSearch(query))
-}
-
-export const deleteSearchHistory = function ({commit}, query) {
-	commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
-}
-
-export const clearSearchHistory = function ({commit}) {
-	commit(types.SET_SEARCH_HISTORY, clearSearch())
-}
-
 export const deleteSong = function ({commit, state}, song) {
 	let playlist = state.playlist.slice()
 	let sequenceList = state.sequenceList.slice()
@@ -105,11 +105,6 @@ export const deleteSong = function ({commit, state}, song) {
 	
 	const playingState = playlist.length > 0
 	commit(types.SET_PLAYING_STATE, playingState)
-	/* if (!playlist.length) {
-		commit(types.SET_PLAYING_STATE, false)
-	} else {
-		commit(types.SET_PLAYING_STATE, true)
-	} */
 }
 
 export const deleteSongList = function ({commit}) {
@@ -117,6 +112,18 @@ export const deleteSongList = function ({commit}) {
   commit(types.SET_PLAYLIST, [])
   commit(types.SET_SEQUENCE_LIST, [])
   commit(types.SET_PLAYING_STATE, false)
+}
+
+export const saveSearchHistory = function ({commit}, query) {
+	commit(types.SET_SEARCH_HISTORY, saveSearch(query))
+}
+
+export const deleteSearchHistory = function ({commit}, query) {
+	commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
+}
+
+export const clearSearchHistory = function ({commit}) {
+	commit(types.SET_SEARCH_HISTORY, clearSearch())
 }
 
 export function savePlayHistory({commit}, song) {

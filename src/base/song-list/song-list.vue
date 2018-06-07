@@ -34,7 +34,9 @@
     		this.$emit('select', item, index)
     	},
       getDesc(song) {
-        return `${song.singer}·${song.album}`
+				// console.log(song)
+        // return `${song.singer}·${song.album}`
+				return `${song.singer} -- ${song.album}`
       },
       getRankCls(index) {
       	if (index <= 2) {

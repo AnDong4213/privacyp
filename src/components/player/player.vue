@@ -70,6 +70,7 @@
         
       </div>
     </transition>
+		
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
@@ -91,6 +92,7 @@
         </div>
       </div>
     </transition>
+		
     <playlist ref="playlist"></playlist>
     <audio ref="audio" @play="ready" @error="error" @timeupdate="updateTime" @ended="end" :src="currentSong.url"></audio>
   </div>
@@ -148,7 +150,7 @@
     },
     created() {
       this.touch = {}
-      // console.log(this.currentSong)
+      // console.log(this.currentIndex)
     },
     methods: {
 		showPlayList() {
@@ -156,6 +158,7 @@
 		},
     	back() {
     		this.setFullScreen(false)
+				// console.log(this.currentSong)
     	},
     	open() {
     		this.setFullScreen(true)
@@ -433,6 +436,7 @@
     		}, 1000)
     	},
     	playing(newPlaying) {
+				// console.log(newPlaying)
     		const audio = this.$refs.audio
     		this.$nextTick(() => {
     			newPlaying ? audio.play() : audio.pause()

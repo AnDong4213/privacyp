@@ -80,6 +80,7 @@
       this.listenScroll = true
     },
     mounted() {
+			// this.$refs.list.$el.style[transform] = `translate3d(0,300px,0)`
     	this.imageHeight = this.$refs.bgImage.clientHeight
     	this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
       this.$refs.list.$el.style.top = `${this.imageHeight}px`
@@ -91,19 +92,22 @@
     		this.$refs.list.refresh()
     	},
     	...mapActions(['selectPlay', 'randomPlay']),
+			
     	selectItem(item, index) {
     		// console.log(this.songs)
     		// console.log(item)
+				// console.log(index)
     		this.selectPlay({
     			list: this.songs,
     			index
     		})
     	},
+			
     	back() {
     		this.$router.back()
     	},
 			scroll(pos) {
-				console.log(pos)
+				// console.log(pos)
 				this.scrollY = pos.y
 			},
 			random() {
@@ -225,7 +229,7 @@
     .bg-layer
       position: relative
       height: 100%
-      background: pink
+      background: #222
     .list
       position: absolute
       top: 0

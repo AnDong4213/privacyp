@@ -2,6 +2,7 @@
   <transition name="list-fade">
     <div class="playlist" v-show="showFlag" @click="hide">
       <div class="list-wrapper" @click.stop>
+				
         <div class="list-header">
           <h1 class="title">
             <i class="icon" :class="iconMode" @click="changeMode"></i>
@@ -9,6 +10,7 @@
             <span class="clear" @click="showConfirm"><i class="icon-clear"></i></span>
           </h1>
         </div>
+				
         <scroll :data="sequenceList" ref="listContent" :refreshDelay="refreshDelay" class="list-content">
           <transition-group ref="list" name="list" tag="ul">
             <li :key="item.id" class="item" v-for="(item,index) in sequenceList" @click="selectItem(item,index)">
@@ -23,6 +25,7 @@
             </li>
           </transition-group>
         </scroll>
+				
         <div class="list-operate">
           <div class="add" @click="addSong">
             <i class="icon-add"></i>

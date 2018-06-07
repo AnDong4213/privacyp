@@ -76,7 +76,8 @@ function filterSinger(singer) {
   singer.forEach((s) => {
     ret.push(s.name)
   })
-  return ret.join('/')
+	// console.log(ret)
+  return ret.join('  /  ')
 }
 
 export function isValidMusic(musicData) {
