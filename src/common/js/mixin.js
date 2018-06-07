@@ -68,6 +68,7 @@ export const playerMixin = {
       return 'icon-not-favorite'
 	  },
 	  toggleFavorite(song) {
+			// console.log(this.isFavorite(song))
 	  	if (this.isFavorite(song)) {
         this.deleteFavoriteList(song)
       } else {

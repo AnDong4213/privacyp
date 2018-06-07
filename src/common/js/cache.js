@@ -11,6 +11,7 @@ const FAVORITE_MAX_LEN = 200
 
 function insertArray (arr, val, compare, maxLen) {
 	const index = arr.findIndex(compare)
+	console.log(index)
 	if (index === 0) {
 		return
 	}
@@ -78,11 +79,9 @@ export function saveFavorite(song) {
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
-
 export function loadFavorite() {
   return storage.get(FAVORITE_KEY, [])
 }
-
 export function deleteFavorite(song) {
   let songs = storage.get(FAVORITE_KEY, [])
   deleteFromArray(songs, (item) => {
@@ -91,3 +90,16 @@ export function deleteFavorite(song) {
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
+/* function insertArray (arr, val, compare, maxLen) {
+	const index = arr.findIndex(compare)
+	if (index === 0) {
+		return
+	}
+	if (index > 0) {
+		arr.splice(index, 1)
+	}
+	arr.unshift(val)
+	if (maxLen && arr.length > maxLen) {
+		arr.pop()
+	}
+} */
