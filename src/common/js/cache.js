@@ -71,6 +71,9 @@ export function loadPlay() {
 	return storage.get(PLAY_KEY, [])
 }
 
+export function loadFavorite() {
+  return storage.get(FAVORITE_KEY, [])
+}
 export function saveFavorite(song) {
   let songs = storage.get(FAVORITE_KEY, [])
   insertArray(songs, song, (item) => {
@@ -78,9 +81,6 @@ export function saveFavorite(song) {
   }, FAVORITE_MAX_LEN)
   storage.set(FAVORITE_KEY, songs)
   return songs
-}
-export function loadFavorite() {
-  return storage.get(FAVORITE_KEY, [])
 }
 export function deleteFavorite(song) {
   let songs = storage.get(FAVORITE_KEY, [])
@@ -101,5 +101,11 @@ export function deleteFavorite(song) {
 	arr.unshift(val)
 	if (maxLen && arr.length > maxLen) {
 		arr.pop()
+	}
+} */
+/* function deleteFromArray (arr, compare) {
+	const index = arr.findIndex(compare)
+	if (index > -1) {
+		arr.splice(index, 1)
 	}
 } */

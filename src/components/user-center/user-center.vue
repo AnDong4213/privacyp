@@ -71,6 +71,10 @@
       },
       ...mapGetters(['favoriteList', 'playHistory'])
     },
+    created() {
+    	console.log(this.favoriteList)
+    	console.log(this.playHistory)
+    },
     methods: {
       handlePlaylist(playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''

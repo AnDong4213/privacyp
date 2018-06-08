@@ -62,6 +62,7 @@ export const playerMixin = {
 	  	this.setCurrentIndex(index)
 	  },
 	  getFavoriteIcon(song) {
+			// console.log(this.isFavorite(song))
 	  	if (this.isFavorite(song)) {
         return 'icon-favorite'
       }
