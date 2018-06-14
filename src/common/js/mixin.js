@@ -53,7 +53,6 @@ export const playerMixin = {
 	  	}
 	  	this.resetCurrentIndex(list)
 	  	this.setPlayList(list)
-			// console.log(this.currentSong)
 	  },
 	  resetCurrentIndex(list) {
 	  	let index = list.findIndex((item) => {
@@ -62,14 +61,12 @@ export const playerMixin = {
 	  	this.setCurrentIndex(index)
 	  },
 	  getFavoriteIcon(song) {
-			// console.log(this.isFavorite(song))
 	  	if (this.isFavorite(song)) {
         return 'icon-favorite'
       }
       return 'icon-not-favorite'
 	  },
 	  toggleFavorite(song) {
-			// console.log(this.isFavorite(song))
 	  	if (this.isFavorite(song)) {
         this.deleteFavoriteList(song)
       } else {

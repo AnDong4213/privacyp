@@ -59,6 +59,7 @@
       	this.hasMore = true
       	this.$refs.suggest.scrollTo(0, 0)
         search(this.query, this.page, this.showSinger, perpage).then((res) => {
+					console.log(res.data)
         	if (res.code === ERR_OK) {
         		this.result = this._genResult(res.data)
         		this._checkMore(res.data)
@@ -81,7 +82,6 @@
         this.$emit('listScroll')
       },
       selectItem(item) {
-      	// console.log(item)
       	if (item.type === TYPE_SINGER) {
 	      		const singer = new Singer({
 		      		id: item.singermid,
@@ -117,9 +117,10 @@
         	ret.push({...data.zhida, ...{type: TYPE_SINGER}, ...{test: '纯测试...'}})
         }
         if (data.song) {
-        	ret = ret.concat(this._normalizeSongs(data.song.list))
+        	// ret = ret.concat(this._normalizeSongs(data.song.list))
+					ret = [...ret, ...this._normalizeSongs(data.song.list)]
         }
-        // console.log(ret)
+				console.log(ret)
         return ret
       },
       _normalizeSongs(list) {
@@ -129,8 +130,10 @@
         		ret.push(createSong(musicData))
         	}
         })
+				// console.log(ret)
         return ret
       },
+			
       _checkMore(data) {
         const song = data.song
         if (!song.list.length || (song.curnum + (song.curpage - 1) * perpage) >= song.totalnum) {

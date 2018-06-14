@@ -33,10 +33,20 @@
     	}
     },
     created() {
-      this.$watch('query', debounce((newQuery) => {
+      this.$watch('query', debounce((newQuery, oldQuery) => {
+				// console.log(newQuery, oldQuery)
       	this.$emit('query', newQuery)
       }, 200))
-    }
+			
+			/* this.$watch('query', function(n, o) {
+				console.log(n, o)
+			}) */
+    },
+		watch: {
+			/* query(n, o) {
+				console.log(n, o)
+			} */
+		}
   }
 </script>
 

@@ -31,6 +31,10 @@ function deleteFromArray (arr, compare) {
 	}
 }
 
+export function loadSearch() {
+  return storage.get(SEARCH_KEY, [])
+}
+
 export function saveSearch (query) {
 	let searches = storage.get(SEARCH_KEY, [])
 	insertArray(searches, query, (item) => {
@@ -38,10 +42,6 @@ export function saveSearch (query) {
 	}, SEARCH_MAX_LEN)
 	storage.set(SEARCH_KEY, searches)
 	return searches
-}
-
-export function loadSearch() {
-  return storage.get(SEARCH_KEY, [])
 }
 
 export function deleteSearch (query) {
@@ -103,6 +103,7 @@ export function deleteFavorite(song) {
 		arr.pop()
 	}
 } */
+
 /* function deleteFromArray (arr, compare) {
 	const index = arr.findIndex(compare)
 	if (index > -1) {

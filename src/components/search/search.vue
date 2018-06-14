@@ -1,8 +1,10 @@
 <template>
   <div class="search">
+		
   	<div class="search-box-wrapper">
-  		<search-box ref="searchBox" @query="onQueryChange"></search-box>
+  		<search-box ref="searchBox" @query="onQueryChange" placeholder="搜索哈哈..."></search-box>
   	</div>
+		
   	<div class="shortcut-wrapper" v-show="!query" ref="shortcutWrapper">
   		<scroll class="shortcut" ref="shortcut" :data="shortcut" :refreshDelay="refreshDelay">
   			<div>
@@ -16,21 +18,24 @@
 	  			</div>
 	  			<div class="search-history" v-show="searchHistory.length">
 	  				<h1 class="title">
-	  					<span class="text">搜索历史</span>
+	  					<span style="color: pink;" class="text">搜索历史</span>
 	  					<span class="clear" @click="showConfirm">
 	  						<i class="icon-clear"></i>
 	  					</span>
 	  				</h1>
-	  				<!--<search-list @select="addQuery" @delete="deleteOne" :searches="searchHistory"></search-list>-->
 	  				<search-list @select="addQuery" @delete="deleteSearchHistory" :searches="searchHistory"></search-list>
 	  			</div>
+					
   		  </div>
   		</scroll>   
   	</div>
+		
   	<div class="search-result" v-show="query" ref="searchResult">
   		<suggest :query="query" @listScroll="blurInput" @select="saveSearch" ref="suggest"></suggest>
   	</div>
+		
   	<confirm ref="confirm" @confirm="clearSearchHistory" confirmBtnText="清空" text="是否清空所有搜索历史"></confirm>
+		
   	<router-view></router-view>
   </div>
 </template>
@@ -55,7 +60,9 @@
 		},
 		computed: {
 			shortcut() {
+				// console.log(this.searchHistory)
 				return this.hotKey.concat(this.searchHistory)
+				// return [...this.hotKey, ...this.searchHistory]
 			}
 		},
 		created() {
@@ -72,6 +79,7 @@
 			},
 			_getHotKey() {
 				getHotKey().then((res) => {
+					// console.log(res)
 					if (res.code === ERR_OK) {
 						this.hotKey = res.data.hotkey.slice(0, 10)
 					}

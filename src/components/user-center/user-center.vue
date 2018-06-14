@@ -73,7 +73,7 @@
     },
     created() {
     	console.log(this.favoriteList)
-    	console.log(this.playHistory)
+    	// console.log(this.playHistory)
     },
     methods: {
       handlePlaylist(playlist) {
