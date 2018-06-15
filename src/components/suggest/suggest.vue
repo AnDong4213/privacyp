@@ -126,6 +126,7 @@
       _normalizeSongs(list) {
         let ret = []
         list.forEach((musicData) => {
+					// console.log(musicData)
         	if (isValidMusic(musicData)) {
         		ret.push(createSong(musicData))
         	}

@@ -25,4 +25,17 @@ export function debounce(func, delay) {
 		}, delay)
 	}
 }
+
+export function delayed(func, delay) {
+	let timer
+	
+	return function (...para) {
+		if (timer) {
+			clearTimeout(timer)
+		}
+		timer = setTimeout(() => {
+			func.apply(this, para)
+		}, delay)
+	}
+}
  
