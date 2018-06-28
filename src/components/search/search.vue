@@ -8,6 +8,7 @@
   	<div class="shortcut-wrapper" v-show="!query" ref="shortcutWrapper">
   		<scroll class="shortcut" ref="shortcut" :data="shortcut" :refreshDelay="refreshDelay">
   			<div>
+					
 	  			<div class="hot-key">
 	  				<h1 class="title">热门搜索</h1>
 	  				<ul>
@@ -16,6 +17,7 @@
 	  					</li>
 	  				</ul>
 	  			</div>
+					
 	  			<div class="search-history" v-show="searchHistory.length">
 	  				<h1 class="title">
 	  					<span style="color: pink;" class="text">搜索历史</span>

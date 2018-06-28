@@ -34,7 +34,6 @@
     },
     created() {
       this.$watch('query', debounce((newQuery, oldQuery) => {
-				// console.log(newQuery, oldQuery)
       	this.$emit('query', newQuery)
       }, 200))
 			

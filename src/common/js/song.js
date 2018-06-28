@@ -6,13 +6,15 @@ import {Base64} from 'js-base64'
 let urlMap = {}
 export default class Song {
 	constructor({id, mid, singer, name, album, duration, image}) {
-		this.id = id
+		/* this.id = id
 	    this.mid = mid
 	    this.singer = singer
 	    this.name = name
 	    this.album = album
 	    this.duration = duration
-	    this.image = image
+	    this.image = image */
+		
+		Object.assign(this, {id, mid, singer, name, album, duration, image})
 	    this.filename = `C400${this.mid}.m4a`
 	    // this.mine = `我的测试--${this.singer}`
 	    // 确保一首歌曲的 id 只对应一个 url
