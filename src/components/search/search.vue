@@ -12,7 +12,7 @@
 	  			<div class="hot-key">
 	  				<h1 class="title">热门搜索</h1>
 	  				<ul>
-	  					<li @click="addQuery(item.k)" v-for="item in hotKey" class="item">
+	  					<li @click="addQuery(item.k)" v-for="item in hotKey" :key="item.n" class="item">
 	  						<span>{{item.k}}</span>
 	  					</li>
 	  				</ul>
@@ -84,6 +84,7 @@
 					// console.log(res)
 					if (res.code === ERR_OK) {
 						this.hotKey = res.data.hotkey.slice(0, 10)
+						// console.log(this.hotKey)
 					}
 				})
 			},

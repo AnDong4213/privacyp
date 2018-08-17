@@ -1,7 +1,7 @@
 <template>
   <scroll ref="suggest" class="suggest" :data="result" :pullup="pullup" :beforeScroll="beforeScroll" @scrollToEnd="searchMore" @beforeScroll="listScroll">
     <ul class="suggest-list">
-      <li class="suggest-item" v-for="item in result" @click="selectItem(item)">
+      <li class="suggest-item" v-for="item in result" :key="item.id" @click="selectItem(item)">
         <div class="icon">
           <i :class="getIconCls(item)"></i>
         </div>
@@ -74,7 +74,7 @@
         search(this.query, this.page, this.showSinger, perpage).then((res) => {
 					console.log(res.data)
         	if (res.code === ERR_OK) {
-        		this.result = this.result.concat(this._genResult(res.data))
+            this.result = this.result.concat(this._genResult(res.data))
             this._checkMore(res.data)
         	}
         })

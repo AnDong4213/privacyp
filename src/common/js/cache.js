@@ -11,7 +11,6 @@ const FAVORITE_MAX_LEN = 200
 
 function insertArray (arr, val, compare, maxLen) {
 	const index = arr.findIndex(compare)
-	console.log(index)
 	if (index === 0) {
 		return
 	}
