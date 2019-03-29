@@ -23,7 +23,7 @@ export function param(data) {
   return url ? url.substring(1) : ''
 }
 
-let haha = {
+/* let haha = {
 	format: 'jsonp',
 	g_tk: 5381,
 	inCharset: 'utf-8',
@@ -32,7 +32,7 @@ let haha = {
 	outCharset: 'utf-8',
   platform: 'h5',
   uin: 0
-}
-console.log(param(haha))  // format=jsonp&g_tk=5381&inCharset=utf-8&needNewCode=1&notice=0&outCharset=utf-8&platform=h5&uin=0
+} */
+// console.log(param(haha))  // format=jsonp&g_tk=5381&inCharset=utf-8&needNewCode=1&notice=0&outCharset=utf-8&platform=h5&uin=0
 
 /* 很简单，就是利用<script>标签没有 跨域限制 的“漏洞”（历史遗迹啊）来达到与第三方通讯的目的。当需要通讯时，本站脚本创建一个<script>元素，地址指向第三方的API网址，形如<script src="http://www.example.net/api?param1=1&param2=2"></script>并提供一个回调函数来接收数据（函数名可约定，或通过地址参数传递）。     第三方产生的响应为json数据的包装（故称之为jsonp，即json padding），形如:callback({"name":"hax","gender":"Male"}) 这样浏览器会调用callback函数，并传递解析后json对象作为参数。本站脚本可在callback函数里处理所传入的数据。    补充：“历史遗迹”的意思就是，如果在今天重新设计的话，也许就不会允许这样简单的跨域了嘿，比如可能像XHR一样按照CORS规范要求服务器发送特定的http头。 */

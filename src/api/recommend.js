@@ -16,16 +16,6 @@ export function getRecommend() {
   return jsonp(url, data, options)
 }
 
-/* export function wangyi() {
-	const url = 'http://music.163.com/weapi/personalized/newsong'
-	const data = {
-    params: 'y5Tp41Id2jdi2hChArZaLwWNeZ0spepEXKoPFWLkZQY=',
-		encSecKey: '8e616bab5fb188e008f896def3ed68941cfe2a360f5063838c306194ba7f5c5d86c5573ec9e881fe405625c12ca8161087237e2951483d22b04e162b6c438273903e0b44b45d3dfadbaa4dc71379c1df5cbd05a084e754ff0841d47d89a6a12fde62301f3adad713df1800c65e4346183a68e359230c7867fde112cd30c4afe1'
-  }
-	return jsonp(url, data, options)
-	// console.log(Date.now())
-} */
-
 export function getDiscList() {
   // 线上环境地址，同学们根据自己的需要配置修改
   // const url = debug ? '/api/getDiscList' : 'http://ustbhuangyi.com/music/api/getDiscList'
